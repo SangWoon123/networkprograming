@@ -1,5 +1,8 @@
+import server.Server;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        int port=Integer.parseInt("9000");
+        new Server(port);
     }
 }
