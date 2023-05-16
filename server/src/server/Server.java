@@ -1,17 +1,17 @@
 package server;
 
-import server.service.ServiceInterface;
-import server.service.ServiceLonLat;
+
 
 import java.io.IOException;
-import java.io.OutputStream;
-import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 
 public class Server {
     private ServerSocket serverSocket;
+    private static ExecutorService threadPool= Executors.newFixedThreadPool(3);
 
     public Server(int port){
         try{
@@ -21,16 +21,15 @@ public class Server {
             while (true){
                 Socket socket=serverSocket.accept();
 
-                //클라이언트 위치 서비스 모듈 호출
-                ServiceInterface service=new ServiceLonLat();
-                Map<String, Double> latLan = service.processRequest(socket);
+                //스레드를 생성하여 클라이언트 요청을 처리
+                threadPool.execute(new ClientHandler(socket));
 
-                //클라이언트 응답
-                OutputStream outputStream=socket.getOutputStream();
-                PrintWriter writer=new PrintWriter(outputStream,true);
-                writer.println(latLan);
+//                //클라이언트 위치 서비스 모듈 호출
+//                //IP 호출
+//                // 관광 모듈 호출
+//                //클라이언트 응답
 
-                socket.close();
+                //socket.close();  소켓이 스레드로 동작하기때문에 에러발생함
             }
         }catch (IOException e){
             System.out.println("Server exception: "+e.getMessage());
