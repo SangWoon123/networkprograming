@@ -1,10 +1,10 @@
-package server.service;
+package server.service.ip;
 
 import java.net.Socket;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ServiceLanLat implements ServiceInterface{
+public class ServiceLanLat implements ServiceInterface {
     @Override
     public Map<String, Double> processRequest(Socket socket) {
         Map<String,Double> lat=new HashMap<>();

@@ -1,4 +1,4 @@
-package server.service;
+package server.service.ip;
 
 import java.net.Socket;
 import java.util.Map;

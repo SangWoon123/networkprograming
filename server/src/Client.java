@@ -25,7 +25,6 @@ public class Client {
 
 
             String response = reader.readLine();
-            System.out.println(response);
 
             Gson gson=new Gson();
 

@@ -1,4 +1,4 @@
-package server.service;
+package server.service.location;
 
 public class ServiceTourList {
 
