@@ -1,8 +1,9 @@
 package server.service.ip;
 
+import org.json.JSONObject;
+
 import java.net.Socket;
-import java.util.Map;
 
 public interface ServiceInterface {
-    public Map<String,Double> processRequest(Socket socket);
+    public JSONObject processRequest(Socket socket);
 }
