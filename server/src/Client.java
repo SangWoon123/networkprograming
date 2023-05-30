@@ -2,9 +2,11 @@ import org.json.JSONObject;
 
 import java.io.*;
 import java.net.Socket;
+import java.util.logging.Logger;
 
 
 public class Client {
+    private static final Logger logger=Logger.getLogger(Client.class.getName());
 
     public static void main(String[] args) {
         String serverName = "localhost";
@@ -32,7 +34,7 @@ public class Client {
             double latitude = jsonObject.getDouble("latitude");
             double longitude = jsonObject.getDouble("longitude");
 
-            System.out.println("위도: "+latitude+"경도: "+longitude);
+            logger.info("위도: "+latitude+"경도: "+longitude);
 
         } catch (IOException e) {
             e.printStackTrace();
