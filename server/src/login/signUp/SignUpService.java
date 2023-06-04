@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class SignUpService {
     private Socket m_Socket;
-    private static final String USER_DATA_FILE = "login/users.txt";
+    private static final String USER_DATA_FILE = "server/src/login/users.txt";
 
 
     public boolean signUp(String username, String password, Socket d_socket) {
