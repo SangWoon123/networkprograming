@@ -11,7 +11,7 @@ import java.io.IOException;
 public class GeoLocation {
     public static void main(String[] args) {
         // IP2Location.io API 키
-        String apiKey = "API키 입력";
+        String apiKey = "97F29EA686923D53EBEAD7167B844164";
 
         // IP 주소
         String ipAddress = "123.45.67.89";
