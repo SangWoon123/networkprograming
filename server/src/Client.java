@@ -31,6 +31,7 @@ public class Client {
             Scanner sc = new Scanner(System.in);
             System.out.print("선택: ");
             int choice = sc.nextInt();
+
             // 서버로 원하는 선택지 전송
             sendChoiceToServer(client, String.valueOf(choice));
 
@@ -80,12 +81,12 @@ public class Client {
 
     // 선택지 서버로 전송
     private static void sendChoiceToServer(Socket socket,String choice)throws IOException{
-
         // 서버로 선택지 전송
         OutputStream outputStream=socket.getOutputStream();
         PrintWriter printWriter=new PrintWriter(outputStream,true);
         printWriter.println(choice);
-        System.out.println(choice+"보냈습니다.");
+
+        printWriter.close();
     }
 
     private static void receiveLoginForm(Socket socket) throws IOException{
