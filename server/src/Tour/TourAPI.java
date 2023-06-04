@@ -1,14 +1,15 @@
 package Tour;
 
+
+import org.json.JSONObject;
+import org.json.simple.JSONArray;
+import org.json.simple.parser.JSONParser;
+
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.net.Socket;
-import org.json.simple.parser.*;
-import org.json.simple.*;
+
 
 public class TourAPI {
 	public String TourInfor(Double[] mapData) {
