@@ -9,7 +9,7 @@ import java.net.Socket;
 public class ViewService {
 
     private Socket m_Socket;
-    private static final String USER_DATA_FILE = "bookmark/bookmark.txt";
+    private static final String USER_DATA_FILE = "server/src/bookmark/bookmark.txt";
     String storedUsername;
     String storedPlaceData;
 
