@@ -63,6 +63,12 @@ public class OtherToMainServerThread extends Thread{
                         SharedArea.replybookmark_msg = split[1];
                         SharedArea.replylogin_exist=true;
                         break;
+                    case"IpData":
+                        SharedArea.findtour_client_socket=m_socket;
+                        SharedArea.tofindtour_msg=text;
+                        break;
+                    case"TourData":
+                        SharedArea.replyfindtour_msg = split[1];    
                 }
 
                 String[] idregister = text.split(":"); //연결 후 id를 전달받음
