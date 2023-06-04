@@ -6,6 +6,7 @@ import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.Scanner;
 import java.util.logging.Logger;
 
 
@@ -20,70 +21,51 @@ public class Client {
             System.out.println("서버에 연결중입니다. " + serverName + " 포트 " + port);
 
             Socket client = new Socket(serverName, port);
-            if(client!=null){
+            if (client != null) {
                 logger.info("서버에 연결되었습니다.");
             }
 
-            String option=getOptionsFromServer(client);
-            System.out.println("서버로 부터 도착한 선택지: "+option);
+            String option = getOptionsFromServer(client);
+            System.out.println("서버로 부터 도착한 선택지: " + option);
 
-            // 선택지에 따른 동작 수행
-            if (option.contains("로그인")){
-                // 사용자 입력받기
-                BufferedReader userInputReader=new BufferedReader(new InputStreamReader(System.in));
-                System.out.print("ID: ");
-                String id=userInputReader.readLine();
-                System.out.printf("Password: ");
-                String password=userInputReader.readLine();
+            Scanner sc = new Scanner(System.in);
+            System.out.print("선택: ");
+            int choice = sc.nextInt();
+            // 서버로 원하는 선택지 전송
+            sendChoiceToServer(client, String.valueOf(choice));
 
-                // 서버로 데이터를 전송하기 위한 출력 스트림
-                OutputStream outputStream=client.getOutputStream();
-                PrintWriter writer=new PrintWriter(outputStream,true);
-
-                //로그인 요청 데이터
-                String userRequest="signIn>"+id+">"+password;
-                // 서버로 보낼 데이터
-                writer.println(userRequest);
-            }else if (option.contains("회원가입")){
-                System.out.println("회원가입");
-                // 사용자 입력받기
-                BufferedReader userInputReader=new BufferedReader(new InputStreamReader(System.in));
-                System.out.printf("ID: ");
-                String id=userInputReader.readLine();
-                System.out.printf("Password: ");
-                String password=userInputReader.readLine();
-
-            } else if (option.contains("관광지")) {
-                String myIp=getIPAddress();
-                System.out.println("내 컴퓨터 IP: "+myIp);
+            // 선택에 따른 동작 수행
+            switch (choice) {
+                case 1:
+                    receiveLoginForm(client);
+                    break;
+                case 2:
+                    receiveSignUpForm(client);
+                    break;
+                case 3:
+                    receiveTourList(client);
+                    break;
+                default:
+                    System.out.println("유효하지 않은 선택입니다.");
+                    break;
             }
+
+            client.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
-    private static String getOptionsFromServer(Socket client){
+    private static String getOptionsFromServer(Socket client)throws IOException{
+        // 서버 응답 받기
+        InputStream inputStream = client.getInputStream();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+        String options = reader.readLine();
 
-        try {
-            // 서버로 선택지 요청
-            OutputStream outputStream = client.getOutputStream();
-            PrintWriter writer = new PrintWriter(outputStream, true);
-            writer.println("getOptions");
-
-            // 서버 응답 받기
-            InputStream inputStream = client.getInputStream();
-            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-            String options = reader.readLine();
-
-            // 스트림 닫기
-            writer.close();
-            reader.close();
-            return options;
-
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-        return null;
+        // 스트림 닫기
+        reader.close();
+        return options;
     }
 
     private static String getIPAddress(){
@@ -94,6 +76,92 @@ public class Client {
             e.printStackTrace();
         }
         return null;
+    }
+
+    // 선택지 서버로 전송
+    private static void sendChoiceToServer(Socket socket,String choice)throws IOException{
+
+        // 서버로 선택지 전송
+        OutputStream outputStream=socket.getOutputStream();
+        PrintWriter printWriter=new PrintWriter(outputStream,true);
+        printWriter.println(choice);
+        System.out.println(choice+"보냈습니다.");
+    }
+
+    private static void receiveLoginForm(Socket socket) throws IOException{
+        // 서버로부터 로그인 폼 받기
+        InputStream inputStream=socket.getInputStream();
+        BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(inputStream));
+        String loginForm=bufferedReader.readLine();
+
+        System.out.println("서버로부터 도착한 로그인 폼: "+loginForm);
+
+
+        // 로그인 폼에 맞게  입력값 전송
+        BufferedReader userInput=new BufferedReader(new InputStreamReader(System.in));
+        System.out.print("ID: ");
+        String id=userInput.readLine();
+        System.out.print("Password: ");
+        String password=userInput.readLine();
+
+        //서버로 데이터를 전송하기위한 출력스트림
+        OutputStream outputStream=socket.getOutputStream();
+        PrintWriter printWriter=new PrintWriter(outputStream,true);
+
+        String userRequest="signIn>"+id+">"+password;
+
+        printWriter.println(userRequest);
+
+    }
+
+    // 서버로부터 회원가입 폼 받기
+    public static void receiveSignUpForm(Socket socket)throws IOException{
+        // 서버로부터 회원가입 폼 받기
+        InputStream inputStream=socket.getInputStream();
+        BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(inputStream));
+        String signUpForm=bufferedReader.readLine();
+
+        System.out.println("서버로 부터 도착한 회원 가입 폼: "+signUpForm);
+
+        // 회원가입 폼에 맞게 데이터 전송
+        BufferedReader userInput=new BufferedReader(new InputStreamReader(System.in));
+        System.out.print("ID: ");
+        String id=userInput.readLine();
+        System.out.print("Password: ");
+        String password=userInput.readLine();
+
+        // 서버로 데이터를 전송하기위한 스트림
+        OutputStream outputStream=socket.getOutputStream();
+        PrintWriter printWriter=new PrintWriter(outputStream,true);
+
+        String userRequest="signup>"+id+">"+password;
+
+        printWriter.println(userRequest);
+
+    }
+
+    private static void receiveTourList(Socket socket)throws IOException{
+        // 서버로부터 폼 입력받기
+        InputStream inputStream=socket.getInputStream();
+        BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(inputStream));
+        String tourList=bufferedReader.readLine();
+
+        System.out.println("서버로 부터 받은 폼: "+tourList);
+
+        // 투어리스트 입력 폼에 맞게 작성
+        System.out.print("IP: ");
+        String ip=getIPAddress();
+
+        //서버로 데이터를 전송하기 위한 출력 스트림
+        OutputStream os=socket.getOutputStream();
+        PrintWriter writer=new PrintWriter(os,true);
+
+        // 관광지 요청 데이터
+        String userRequest="tourList>"+ip;
+
+        writer.println(userRequest);
+
+
     }
 
 }
