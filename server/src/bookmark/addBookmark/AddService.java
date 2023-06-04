@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class AddService {
     private Socket m_Socket;
-    private static final String BOOKMARK_DATA_FILE = "bookmark/bookmark.txt";
+    private static final String BOOKMARK_DATA_FILE = "server/src/bookmark/bookmark.txt";
 
 
     public boolean add(String username, String placedata, Socket d_socket) {
