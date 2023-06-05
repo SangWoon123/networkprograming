@@ -88,7 +88,6 @@ public class OtherToMainServerThread extends Thread{
                     System.out.println(m_ID + "이(가) 연결되었습니다.");
                 }
 
-
             }
 
             MainServer.m_OutputList.remove(new PrintWriter(m_socket.getOutputStream()));
