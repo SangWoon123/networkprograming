@@ -4,41 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="16005120-66a9-4a35-ae35-29bb8f451834" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/networkprograming.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/Tour/TourAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/Tour/TourAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/client/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/client/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/login/connection/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/login/connection/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/login/users.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/login/users.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Tour/TourAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Tour/TourAPI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bookmark/addBookmark/AddService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bookmark/addBookmark/AddService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bookmark/bookmark.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bookmark/bookmark.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bookmark/connection/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bookmark/connection/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bookmark/connection/ReceiveThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bookmark/connection/ReceiveThread.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bookmark/connection/SendThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bookmark/connection/SendThread.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bookmark/viewBookmark/ViewService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bookmark/viewBookmark/ViewService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/client/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/client/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/client/ReceiveThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/client/ReceiveThread.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/client/SendThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/client/SendThread.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/geoLocation/geoLocation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/geoLocation/geoLocation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/login/connection/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/login/connection/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/login/connection/ReceiveThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/login/connection/ReceiveThread.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/login/connection/SendThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/login/connection/SendThread.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/login/signIn/SignInService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/login/signIn/SignInService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/login/signUp/SignUpService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/login/signUp/SignUpService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/login/users.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/login/users.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/server/MainServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/server/MainServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/server/OtherToMainServerThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/server/OtherToMainServerThread.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/server/ServerToServerThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/server/ServerToServerThread.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/server/SharedArea.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/server/SharedArea.class" afterDir="false" />
-    </list>
+    <list default="true" id="16005120-66a9-4a35-ae35-29bb8f451834" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -68,31 +34,44 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.17",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "configurable.group.editor",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.editor&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/server/src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.login.connection.Main">
+  <component name="RunManager" selected="Application.Client">
     <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Client" />
       <module name="networkprograming" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="bookmark.connection.Main" />
+      <module name="networkprograming" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="bookmark.connection.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -130,26 +109,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="login.connection.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="login.connection.Main" />
-      <module name="networkprograming" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="login.connection.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.login.connection.Main" />
         <item itemvalue="Application.Client" />
         <item itemvalue="Application.MainServer" />
-        <item itemvalue="Application.client.Main" />
         <item itemvalue="Application.Server" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.client.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -166,24 +132,12 @@
       <workItem from="1685597779688" duration="741000" />
       <workItem from="1685633562229" duration="36919000" />
       <workItem from="1685942263083" duration="2327000" />
-      <workItem from="1685944613466" duration="6862000" />
-      <workItem from="1685953731772" duration="2221000" />
+      <workItem from="1685944613466" duration="2559000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
