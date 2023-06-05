@@ -81,6 +81,9 @@ public class OtherToMainServerThread extends Thread{
                     if(m_ID.equals("bookmark")){
                         SharedArea.bookmark_socket=m_socket;
                     }
+                    if(m_ID.equals("findtour")){
+                        SharedArea.bookmark_socket=m_socket;
+                    }
                     System.out.println(m_ID + "이(가) 연결되었습니다.");
                 }
 
