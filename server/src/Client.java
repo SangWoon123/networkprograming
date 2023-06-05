@@ -1,8 +1,11 @@
 
 
+import geoLocation.geoLocation;
+
 import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
+import java.net.URL;
 import java.net.UnknownHostException;
 import java.util.Scanner;
 import java.util.logging.Logger;
@@ -15,7 +18,8 @@ public class Client {
 
     public static void main(String[] args) {
         String serverName = "localhost";
-        int port = 9398;
+        int port = 9000;
+        String myIp=getIPAddress();
 
         try {
             System.out.println("서버에 연결중입니다. " + serverName + " 포트 " + port);
@@ -25,17 +29,21 @@ public class Client {
                 logger.info("서버에 연결되었습니다.");
             }
 
-            //서버로부터 읽기
+            // 서버로 부터 메시지 읽기
             BufferedReader reader=new BufferedReader(new InputStreamReader(client.getInputStream()));
-            // 서버로부터 보내기
+            // 서버로 보내기
             PrintWriter writer=new PrintWriter(client.getOutputStream(),true);
 
             while(true){
 
+                System.out.printf("서버로 보낼 메시지를 작성해주세요.");
                 Scanner sc=new Scanner(System.in);
                 String s=sc.next();
 
-                writer.println("signUpㄴ>g>1");
+                writer.println(s);
+
+                String read=reader.readLine();
+                System.out.println(read);
             }
 
 
@@ -58,6 +66,7 @@ public class Client {
         return options;
     }
 
+    // 내 위치 IP로 받기
     private static String getIPAddress(){
         try {
             InetAddress inetAddress=InetAddress.getLocalHost();
@@ -85,7 +94,6 @@ public class Client {
         String loginForm=bufferedReader.readLine();
 
         System.out.println("서버로부터 도착한 로그인 폼: "+loginForm);
-
 
         // 로그인 폼에 맞게  입력값 전송
         BufferedReader userInput=new BufferedReader(new InputStreamReader(System.in));
