@@ -8,6 +8,7 @@ import java.net.Socket;
 
 import Tour.TourAPI;
 import geoLocation.geoLocation;
+import login.connection.Main;
 
 public class SendThread extends Thread{
 	private Socket m_Socket;
@@ -23,7 +24,10 @@ public class SendThread extends Thread{
 			PrintWriter sendWriter = new PrintWriter(m_Socket.getOutputStream());
 			
 			String sendString;
-			
+
+			sendWriter.println("ID:" + client.Main.UserID); //시작할 때 모듈 이름 전송
+			sendWriter.flush();
+
 			while(true) {
 				
 				sendString = tmpbuf.readLine();

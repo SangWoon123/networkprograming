@@ -5,10 +5,12 @@ import java.net.Socket;
 import java.rmi.UnknownHostException;
 
 public class Main {
+
+	public static String UserID = "findtour";//시작할 때 보낼 모듈 이름
 	public static void main(String[] args) {
 		
 		try {
-			Socket c_socket = new Socket("127.0.0.1", 9398);
+			Socket c_socket = new Socket("127.0.0.1", 9370);
 			
 			System.out.println("dkdkdk");
 			

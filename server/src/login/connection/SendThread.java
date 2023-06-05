@@ -22,7 +22,7 @@ public class SendThread extends Thread{
 
             String sendString;
 
-            sendWriter.println("ID:" + Main.UserID);
+            sendWriter.println("ID:" + login.connection.Main.UserID);
             sendWriter.flush();
 
             while(true)

@@ -28,6 +28,7 @@ public class ReceiveThread extends Thread {
 			
 			while(true) {
 				receiveString = tmpbuf.readLine();
+				System.out.println("받은 메시지:" + receiveString); //테스트용으로 받은 메시지를 출력
 				split = receiveString.split(">");
 				if(split.length >= 2 && split[0].equals("tourList")) {
 					TourData = TourAPI.TourInfor(Geo_Location.GeoLocation(split[1]));

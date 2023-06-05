@@ -23,7 +23,7 @@ public class SendThread extends Thread{
             String sendString;
 
 
-            sendWriter.println("ID:" + Main.ModuleID);
+            sendWriter.println("ID:" + bookmark.connection.Main.ModuleID);
             sendWriter.flush();
 
             while(true)
