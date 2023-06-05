@@ -15,7 +15,7 @@ public class MainServer {
         m_OutputList = new ArrayList<PrintWriter>();
 
         try {
-            ServerSocket s_socket = new ServerSocket(9398);
+            ServerSocket s_socket = new ServerSocket(9000);
 
             while(true)
             {

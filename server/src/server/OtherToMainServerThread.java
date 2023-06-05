@@ -63,7 +63,7 @@ public class OtherToMainServerThread extends Thread{
                         SharedArea.replybookmark_msg = split[1];
                         SharedArea.replylogin_exist=true;
                         break;
-                    case"IpData":
+                    case"tourList":
                         SharedArea.findtour_client_socket=m_socket;
                         SharedArea.tofindtour_msg=text;
                         break;
