@@ -17,7 +17,6 @@ public class Server {
                 Socket clientSocket = serverSocket.accept();
                 System.out.println("클라이언트가 연결되었습니다.");
 
-
                 // 클라이언트 요청 처리
                 handleClientRequest(clientSocket);
 
@@ -25,6 +24,15 @@ public class Server {
             }
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            // Close the server socket when done
+            if (serverSocket != null) {
+                try {
+                    serverSocket.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 
@@ -42,7 +50,6 @@ public class Server {
 
         // 클라이언트로 선택지 전송
         writer.println("1. 로그인 2. 회원가입 3. 관광지");
-        writer.flush();
 
         // 클라이언트의 선택 수신
         String clientChoice = reader.readLine();
