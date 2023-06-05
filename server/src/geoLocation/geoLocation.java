@@ -1,45 +1,47 @@
 package geoLocation;
 
-import java.io.IOException;
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.HttpClientBuilder;
-import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
 
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
 public class geoLocation {
-	
+
 	public Double[] GeoLocation(String IpAddress) {
-		
+
 		String apiKey = "97F29EA686923D53EBEAD7167B844164";
-		
+
 		String url = "https://api.ip2location.io/v2/" + IpAddress + "?key=" + apiKey + "&include=latlong";
 
-		// HttpClient 생성
-		HttpClient httpClient = HttpClientBuilder.create().build();
-		Double temp[] = null;
-		
-		// API 호출
+		String result = "";
+
+		Double[] temp = null;
+
 		try {
-		    HttpGet request = new HttpGet(url);
-		    HttpResponse response = httpClient.execute(request);
-		    HttpEntity entity = response.getEntity();
-		    String responseString = EntityUtils.toString(entity);
 
-		    // JSON 응답 파싱
-		    JSONObject json = new JSONObject(responseString);
-		    double latitude = json.getDouble("latitude");
-		    double longitude = json.getDouble("longitude");
+			URL Url = new URL(url);
 
-		    temp = new Double[2];
-		    temp[0] = latitude;
-		    temp[1] = longitude;
-		} catch (IOException e) {
-		    e.printStackTrace();
+			HttpURLConnection conn = (HttpURLConnection)Url.openConnection();
+
+			conn.setRequestProperty("Content-type",  "application/json");
+
+			BufferedReader bf;
+			bf = new BufferedReader(new InputStreamReader(Url.openStream(), "UTF-8"));
+			result = bf.readLine();
+
+			JSONObject json = new JSONObject(result);
+			double latitude = json.getDouble("latitude");
+			double longitude = json.getDouble("longitude");
+
+			temp = new Double[2];
+			temp[0] = latitude;
+			temp[1] = longitude;
+		} catch(IOException e) {
+			e.printStackTrace();
 		}
-		
 		return temp;
 	}
 }
