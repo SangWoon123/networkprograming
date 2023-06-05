@@ -8,7 +8,7 @@ public class Main {
 	public static void main(String[] args) {
 		
 		try {
-			Socket c_socket = new Socket("127.0.0.1", 9370);
+			Socket c_socket = new Socket("127.0.0.1", 9399);
 			
 			System.out.println("dkdkdk");
 			

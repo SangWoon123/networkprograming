@@ -15,7 +15,6 @@ public class MainServer {
         // TODO Auto-generated method stub
 
         m_OutputList = new ArrayList<PrintWriter>();
-
         try {
             ServerSocket s_socket = new ServerSocket(9370);
 
