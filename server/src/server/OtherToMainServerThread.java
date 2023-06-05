@@ -28,6 +28,7 @@ public class OtherToMainServerThread extends Thread{
 
             while(true)
             {
+
                 text = tmpbuffer.readLine();
                 System.out.println(m_ID+ "가 보낸 메시지:" +text);
                 if(text == null)

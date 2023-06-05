@@ -10,10 +10,12 @@ import java.util.logging.Logger;
 
 public class Client {
     private static final Logger logger=Logger.getLogger(Client.class.getName());
+    private BufferedReader br;
+    private PrintWriter pw;
 
     public static void main(String[] args) {
         String serverName = "localhost";
-        int port = 9000;
+        int port = 9398;
 
         try {
             System.out.println("서버에 연결중입니다. " + serverName + " 포트 " + port);
@@ -23,33 +25,22 @@ public class Client {
                 logger.info("서버에 연결되었습니다.");
             }
 
-            String option = getOptionsFromServer(client);
-            System.out.println("서버로 부터 도착한 선택지: " + option);
+            //서버로부터 읽기
+            BufferedReader reader=new BufferedReader(new InputStreamReader(client.getInputStream()));
+            // 서버로부터 보내기
+            PrintWriter writer=new PrintWriter(client.getOutputStream(),true);
 
-            Scanner sc = new Scanner(System.in);
-            System.out.print("선택: ");
-            int choice = sc.nextInt();
+            while(true){
 
-            // 서버로 원하는 선택지 전송
-            sendChoiceToServer(client, String.valueOf(choice));
+                Scanner sc=new Scanner(System.in);
+                String s=sc.next();
 
-            // 선택에 따른 동작 수행
-            switch (choice) {
-                case 1:
-                    receiveLoginForm(client);
-                    break;
-                case 2:
-                    receiveSignUpForm(client);
-                    break;
-                case 3:
-                    receiveTourList(client);
-                    break;
-                default:
-                    System.out.println("유효하지 않은 선택입니다.");
-                    break;
+                writer.println("signUpㄴ>g>1");
             }
 
-            client.close();
+
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }

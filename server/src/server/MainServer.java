@@ -1,6 +1,8 @@
 package server;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -20,6 +22,7 @@ public class MainServer {
             {
                 Socket c_socket = s_socket.accept();//연결 요청이 들어온 클라이언트와 연결될 소켓을 c_socket에 저장
 
+
                 ServerToServerThread cs_thread = new ServerToServerThread(); //클라이언트가 보낸 메시지를 로그인,즐겨찾기,관광지 추천 중 해당하는 곳으로 보내는 쓰레드
                 cs_thread.setSocket(c_socket);
 
@@ -30,7 +33,6 @@ public class MainServer {
 
                 cs_thread.start();
                 c_thread.start();
-
             }
 
 
