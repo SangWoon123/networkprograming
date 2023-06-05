@@ -19,15 +19,16 @@ public class ServerToServerThread extends Thread{
 
             while(true)
             {
-                Thread.sleep(10);
+                Thread.sleep(5);
 
                 if(m_socket.equals(SharedArea.login_socket) && SharedArea.tologin_msg!=null){ //로그인 모듈과 연결된 소켓
+                    System.out.println("이게왜..");
                     sendWriter.println(SharedArea.tologin_msg);
                     sendWriter.flush();
                     SharedArea.tologin_msg=null;
                 }
-                if(m_socket.equals(SharedArea.login_client_socket)){ //로그인 모듈에 메시지를 보낸 클라이언트와 연결된 소켓
-                    Thread.sleep(100);
+                if(m_socket.equals(SharedArea.login_client_socket) && SharedArea.replylogin_msg!=null){ //로그인 모듈에 메시지를 보낸 클라이언트와 연결된 소켓
+                    Thread.sleep(20);
                     sendWriter.println(SharedArea.replylogin_msg);
                     sendWriter.flush();
                     SharedArea.replylogin_msg=null;
