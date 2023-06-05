@@ -18,7 +18,7 @@ public class Client {
 
     public static void main(String[] args) {
         String serverName = "localhost";
-        int port = 9370;
+        int port = 9000;
         String myIp=getIPAddress();
 
         try {

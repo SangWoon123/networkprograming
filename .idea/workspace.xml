@@ -4,7 +4,41 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="16005120-66a9-4a35-ae35-29bb8f451834" name="Changes" comment="" />
+    <list default="true" id="16005120-66a9-4a35-ae35-29bb8f451834" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/networkprograming.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/Tour/TourAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/Tour/TourAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/client/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/client/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/login/connection/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/login/connection/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/login/users.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/login/users.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Tour/TourAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Tour/TourAPI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bookmark/addBookmark/AddService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bookmark/addBookmark/AddService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bookmark/bookmark.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bookmark/bookmark.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bookmark/connection/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bookmark/connection/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bookmark/connection/ReceiveThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bookmark/connection/ReceiveThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bookmark/connection/SendThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bookmark/connection/SendThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bookmark/viewBookmark/ViewService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bookmark/viewBookmark/ViewService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/client/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/client/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/client/ReceiveThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/client/ReceiveThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/client/SendThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/client/SendThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/geoLocation/geoLocation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/geoLocation/geoLocation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/login/connection/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/login/connection/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/login/connection/ReceiveThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/login/connection/ReceiveThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/login/connection/SendThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/login/connection/SendThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/login/signIn/SignInService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/login/signIn/SignInService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/login/signUp/SignUpService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/login/signUp/SignUpService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/login/users.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/login/users.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/server/MainServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/server/MainServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/server/OtherToMainServerThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/server/OtherToMainServerThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/server/ServerToServerThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/server/ServerToServerThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/server/SharedArea.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/server/SharedArea.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,7 +89,7 @@
       <recent name="$PROJECT_DIR$/server/src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Client">
+  <component name="RunManager" selected="Application.login.connection.Main">
     <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Client" />
       <module name="networkprograming" />
@@ -111,8 +145,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Client" />
         <item itemvalue="Application.login.connection.Main" />
+        <item itemvalue="Application.Client" />
         <item itemvalue="Application.MainServer" />
         <item itemvalue="Application.client.Main" />
         <item itemvalue="Application.Server" />
@@ -133,7 +167,7 @@
       <workItem from="1685633562229" duration="36919000" />
       <workItem from="1685942263083" duration="2327000" />
       <workItem from="1685944613466" duration="6862000" />
-      <workItem from="1685953731772" duration="2557000" />
+      <workItem from="1685953731772" duration="2221000" />
     </task>
     <servers />
   </component>
