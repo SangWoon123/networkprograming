@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="networkprograming" />
+        <module name="networkprograming1" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="networkprograming" target="11" />
+      <module name="GeoLocation" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>
