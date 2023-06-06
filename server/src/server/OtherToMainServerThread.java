@@ -14,7 +14,7 @@ public class OtherToMainServerThread extends Thread{
     private String m_ID = "client";
     String inputid;
     String inputpw;
-
+    String choice = "";
     @Override
     public void run() {
         // TODO Auto-generated method stub
@@ -54,7 +54,7 @@ public class OtherToMainServerThread extends Thread{
                     sendWriter.flush();
                     System.out.println("1.로그인 2.회원가입 3.관광지 추천 받기 4.종료");
                     text = tmpbuffer.readLine();
-                    String choice = text;
+                    choice = text;
                     switch(choice){
                         case "1":
                             SharedArea.login_client_socket=m_socket;
@@ -91,16 +91,18 @@ public class OtherToMainServerThread extends Thread{
                                 allow = tmpbuffer.readLine();
                             }
                             if(allow.equals("아니오")) break;
+                            String ipip = m_socket.getInetAddress().getHostAddress();//로컬호스트로 연결되어 로컬호스트를 반환함
+                            System.out.println("ip : " + ipip);
                             String inputip = tmpbuffer.readLine();
                             SharedArea.tofindtour_msg="tourList>" + inputip + ">"+inputpw;
                             break;
                         case "4":
                             System.out.println("종료");
+                            choice="exit";
                             break;
                     }
-                    if(choice.equals("4")) break;
                 }
-
+                if(choice.equals("exit")) break;
 
                 if(m_ID.equals("login") || m_ID.equals("bookmark") || m_ID.equals("findtour")){
                     text = tmpbuffer.readLine();
@@ -117,7 +119,7 @@ public class OtherToMainServerThread extends Thread{
                 }
                 /*else if(loginStaus && !m_ID.equals("login") && !m_ID.equals("bookmark") && !m_ID.equals("findtour")){
                     System.out.println("1.로그아웃 2.관광지 추천 받기 3.즐겨찾기 추가 4.즐겨찾기 보기 5.종료");
-                    String choice = scanner.next();
+                    String choice = "ㅁ";//scanner.next();
                     switch(choice){
                         case "1":
                             System.out.println("로그아웃");
@@ -134,8 +136,9 @@ public class OtherToMainServerThread extends Thread{
                             break;
                     }
                     if(choice.equals("5")) break;
-                }*/
-
+                }
+                if(choice.equals("exit")) break;
+*/
 
                 /*String[] split = text.split(">");
                 msgtype = split[0];
@@ -171,6 +174,9 @@ public class OtherToMainServerThread extends Thread{
 
             }
 
+            System.out.println("프로그램 종료");
+            sendWriter.println("프로그램이 종료되었습니다");
+            sendWriter.flush();
             MainServer.m_OutputList.remove(new PrintWriter(m_socket.getOutputStream()));
             m_socket.close();
 

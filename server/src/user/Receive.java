@@ -23,8 +23,10 @@ public class Receive extends Thread{
                 receiveString = reader.readLine();
 
                 System.out.println(receiveString);
+                if(receiveString.equals("프로그램이 종료되었습니다")) break;
             }
 
+            socket.close();
         } catch (IOException e) {
             // TODO Auto-generated catch block
         }
