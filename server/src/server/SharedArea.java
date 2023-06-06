@@ -14,8 +14,8 @@ public class SharedArea {
     public static String replybookmark_msg="즐겨찾기 모듈의 응답메시지가 저장되지 않았습니다"; //즐겨찾기 모듈이 요청을 보냈던 클라이언트에게 보내는 메시지를 저장
     public static Socket findtour_socket;
     public static Socket findtour_client_socket;
-    public static String tofindtour_msg;
-    public static String replyfindtour_msg;
+    public static String tofindtour_msg=null;
+    public static String replyfindtour_msg=null;
 
 
 }

@@ -80,6 +80,19 @@ public class OtherToMainServerThread extends Thread{
                             break;
                         case "3":
                             System.out.println("관광지 추천 받기");
+                            SharedArea.findtour_client_socket=m_socket;
+                            sendWriter.println("위치 정보를 얻는데 동의하십니까? (네/아니오):");
+                            sendWriter.flush();
+                            String allow = tmpbuffer.readLine();
+                            while(!allow.equals("네") && !allow.equals("아니오")){ // (네/아니오)로 대답하지 않은 경우
+                                sendWriter.println("(네/아니오)로 대답해주세요:");
+                                sendWriter.flush();
+                                System.out.println("(네/아니오)로 대답해주세요:");
+                                allow = tmpbuffer.readLine();
+                            }
+                            if(allow.equals("아니오")) break;
+                            String inputip = tmpbuffer.readLine();
+                            SharedArea.tofindtour_msg="tourList>" + inputip + ">"+inputpw;
                             break;
                         case "4":
                             System.out.println("종료");
@@ -97,6 +110,8 @@ public class OtherToMainServerThread extends Thread{
                         case"replylogin":
                             SharedArea.replylogin_msg = split[1];
                             break;
+                        case"TourData":
+                            SharedArea.replyfindtour_msg = split[1];
                     }
 
                 }
