@@ -21,14 +21,12 @@ public class Receive extends Thread{
             while(true)
             {
                 receiveString = reader.readLine();
-                String[] placedata = receiveString.split(",");
-                if(placedata.length>1){
-                    int i=1;
-                    System.out.println("길이는" + placedata.length);
-                    for(i=1; i<placedata.length; i++){
-                        System.out.println(i+placedata[i]);
-                    }
-                }
+
+                String[] bookmark_placedata = receiveString.split(",");//즐겾찾기 보기 관련 메시지가 왔을 때 보기 좋게 바꾸어 출력
+                if(bookmark_placedata.length>1) for(int i=1; i<bookmark_placedata.length; i++) System.out.println(i+bookmark_placedata[i]); //등록된 장소 수 만큼 줄바꿈하여 출력
+
+                String[] placedata = receiveString.split("!");//즐겾찾기 보기 관련 메시지가 왔을 때 보기 좋게 바꾸어 출력
+                if(placedata.length>1) for(int i=1; i<placedata.length; i++) System.out.println(i+placedata[i]); //등록된 장소 수 만큼 줄바꿈하여 출력
 
                 else System.out.println(receiveString);
                 if(receiveString.equals("프로그램이 종료되었습니다")) break;
