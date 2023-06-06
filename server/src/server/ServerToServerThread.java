@@ -46,13 +46,13 @@ public class ServerToServerThread extends Thread{
                     SharedArea.replybookmark_msg=null;
                     SharedArea.bookmark_client_socket=null;
                 }
-                if(m_socket.equals(SharedArea.findtour_socket) && SharedArea.tofindtour_msg!=null){ //즐겨찾기 모듈과 연결된 소켓
+                if(m_socket.equals(SharedArea.findtour_socket) && SharedArea.tofindtour_msg!=null){ //관광지 추천 모듈과 연결된 소켓
                     sendWriter.println(SharedArea.tofindtour_msg);
                     sendWriter.flush();
                     SharedArea.tofindtour_msg=null;
                 }
-                if(m_socket.equals(SharedArea.findtour_client_socket) && SharedArea.replyfindtour_msg!=null){ //즐겨찾기 모듈에 메시지를 보낸 클라이언트와 연결된 소켓
-                    //System.out.println("즐겨찾기 모듈의 응답 메시지(mainserver->client):" + SharedArea.replybookmark_msg);
+                if(m_socket.equals(SharedArea.findtour_client_socket) && SharedArea.replyfindtour_msg!=null){ //관광지 모듈에 메시지를 보낸 클라이언트와 연결된 소켓
+                    System.out.println("즐겨찾기 모듈의 응답 메시지(mainserver->client):" + SharedArea.replybookmark_msg);
                     Thread.sleep(100);
                     sendWriter.println(SharedArea.replyfindtour_msg);
                     sendWriter.flush();
