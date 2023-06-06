@@ -29,15 +29,14 @@ public class Client {
             // 서버로 보낼 메시지
             PrintWriter writer=new PrintWriter(client.getOutputStream(),true);
 
-            while (true){
+            String serverMessage;
+            while ((serverMessage=reader.readLine())!=null){
+
+                System.out.println("서버 메시지"+serverMessage);
 
                 String message=sc.next();
 
                 writer.println(message);
-
-                String read=reader.readLine();
-
-                System.out.println(read);
             }
 
         } catch (IOException e) {
