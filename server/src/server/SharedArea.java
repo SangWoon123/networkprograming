@@ -2,7 +2,7 @@ package server;
 
 import java.net.Socket;
 
-public class SharedArea {
+public class SharedArea { //소켓간 데이터를 공유할 수 있는 클래스
     public static Socket login_socket;
     public static Socket login_client_socket;
     public static String tologin_msg=null; //클라이언트가 로그인 모듈로 보내는 메시지를 저장

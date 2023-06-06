@@ -21,6 +21,7 @@ public class ServerToServerThread extends Thread{
             {
                 Thread.sleep(5);
 
+                //전달할 메시지가 등록되면 소켓을 통해 연결된 클라이언트로 전달
                 if(m_socket.equals(SharedArea.login_socket) && SharedArea.tologin_msg!=null){ //로그인 모듈과 연결된 소켓
                     sendWriter.println(SharedArea.tologin_msg);
                     sendWriter.flush();
