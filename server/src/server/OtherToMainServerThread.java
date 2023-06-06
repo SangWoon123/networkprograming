@@ -26,7 +26,7 @@ public class OtherToMainServerThread extends Thread{
             String text;
             String msgtype;
             PrintWriter sendWriter = new PrintWriter(m_socket.getOutputStream());
-            boolean loginStaus = false;
+            boolean loginStatus = false;
             text = tmpbuffer.readLine();//첫번째 입력(모듈이름을 알려줌)을 받고 다음으로 넘어감
             while(true)
             {
@@ -49,7 +49,8 @@ public class OtherToMainServerThread extends Thread{
                 }
 
 
-                if(!loginStaus && !m_ID.equals("login") && !m_ID.equals("bookmark") && !m_ID.equals("findtour")){
+                System.out.println("ㅎㅎ");
+                if(!loginStatus && !m_ID.equals("login") && !m_ID.equals("bookmark") && !m_ID.equals("findtour")){
                     sendWriter.println("1.로그인 2.회원가입 3.관광지 추천 받기 4.종료");
                     sendWriter.flush();
                     System.out.println("1.로그인 2.회원가입 3.관광지 추천 받기 4.종료");
@@ -61,22 +62,40 @@ public class OtherToMainServerThread extends Thread{
                             sendWriter.println("id:");
                             sendWriter.flush();
                             inputid = tmpbuffer.readLine();
+                            m_ID=inputid;
                             sendWriter.println("pw:");
                             sendWriter.flush();
                             inputpw = tmpbuffer.readLine();
                             SharedArea.tologin_msg="signIn>" + inputid + ">"+inputpw;
-                            while(SharedArea.login_client_socket!=null)Thread.sleep(1);
+                            while(SharedArea.login_client_socket!=null){
+                                Thread.sleep(1);
+                                if(SharedArea.replylogin_msg !=null){
+                                    if(SharedArea.replylogin_msg.equals("로그인 성공!")){
+                                        m_ID=inputid;
+                                        loginStatus=true;
+                                    }
+                                }
+                            }
                             break;
                         case "2":
                             SharedArea.login_client_socket=m_socket;
                             sendWriter.println("id:");
                             sendWriter.flush();
                             inputid = tmpbuffer.readLine();
-                            sendWriter.println("pw:");
+                            sendWriter.println("pw:9");
                             sendWriter.flush();
                             inputpw = tmpbuffer.readLine();
                             SharedArea.tologin_msg="signUp>" + inputid + ">"+inputpw;
-                            while(SharedArea.login_client_socket!=null)Thread.sleep(1);
+                            System.out.println("여기야2"+SharedArea.replylogin_msg);
+                            /*while(SharedArea.login_client_socket!=null){
+                                Thread.sleep(1);
+                                System.out.println("여기야3");
+                                System.out.println("여기야2"+SharedArea.replylogin_msg);
+                                if(SharedArea.replylogin_msg.equals("로그인 성공!")){
+                                    m_ID=inputid;
+                                    loginStatus=true;
+                                }
+                            }*/
                             break;
                         case "3":
                             System.out.println("관광지 추천 받기");
@@ -100,33 +119,48 @@ public class OtherToMainServerThread extends Thread{
                             System.out.println("종료");
                             choice="exit";
                             break;
+                        default:
+                            sendWriter.println("1~4의 숫자를 입력해주세요");
+                            sendWriter.flush();
                     }
                 }
-                if(choice.equals("exit")) break;
-
-                if(m_ID.equals("login") || m_ID.equals("bookmark") || m_ID.equals("findtour")){
+                else if(loginStatus && !m_ID.equals("login") && !m_ID.equals("bookmark") && !m_ID.equals("findtour")){
+                    sendWriter.println("1.관광지 추천 받기 2.즐겨찾기 보기 3.즐겨찾기 추가 4.종료");
+                    sendWriter.flush();
+                    System.out.println("1.관광지 추천 받기 2.즐겨찾기 보기 3.즐겨찾기 추가 4.종료");
                     text = tmpbuffer.readLine();
-                    String[] split = text.split(">");
-                    msgtype = split[0];
-                    switch (msgtype){
-                        case"replylogin":
-                            SharedArea.replylogin_msg = split[1];
-                            break;
-                        case"TourData":
-                            SharedArea.replyfindtour_msg = split[1];
-                    }
-
-                }
-                /*else if(loginStaus && !m_ID.equals("login") && !m_ID.equals("bookmark") && !m_ID.equals("findtour")){
-                    System.out.println("1.로그아웃 2.관광지 추천 받기 3.즐겨찾기 추가 4.즐겨찾기 보기 5.종료");
-                    String choice = "ㅁ";//scanner.next();
+                    choice = text;
                     switch(choice){
                         case "1":
-                            System.out.println("로그아웃");
-                        case "2":
                             System.out.println("관광지 추천 받기");
+                            SharedArea.findtour_client_socket=m_socket;
+                            sendWriter.println("위치 정보를 얻는데 동의하십니까? (네/아니오):");
+                            sendWriter.flush();
+                            String allow = tmpbuffer.readLine();
+                            while(!allow.equals("네") && !allow.equals("아니오")){ // (네/아니오)로 대답하지 않은 경우
+                                sendWriter.println("(네/아니오)로 대답해주세요:");
+                                sendWriter.flush();
+                                System.out.println("(네/아니오)로 대답해주세요:");
+                                allow = tmpbuffer.readLine();
+                            }
+                            if(allow.equals("아니오")) break;
+                            String ipip = m_socket.getInetAddress().getHostAddress();//로컬호스트로 연결되어 로컬호스트를 반환함
+                            System.out.println("ip : " + ipip);
+                            String inputip = tmpbuffer.readLine();
+                            SharedArea.tofindtour_msg="tourList>" + inputip + ">"+inputpw;
+                            break;
+                        case "2":
+                            SharedArea.bookmark_client_socket=m_socket;
+                            SharedArea.tobookmark_msg="viewBookmark>" + m_ID;
+                            while(SharedArea.bookmark_client_socket!=null)Thread.sleep(1);
+                            break;
                         case "3":
-                            System.out.println("즐겨찾기 추가");
+                            SharedArea.bookmark_client_socket=m_socket;
+                            sendWriter.println("id:");
+                            sendWriter.flush();
+                            inputid = tmpbuffer.readLine();
+                            SharedArea.tologin_msg="viewBookmark>" + inputid;
+                            while(SharedArea.bookmark_client_socket!=null)Thread.sleep(1);
                             break;
                         case "4":
                             System.out.println("즐겨찾기 보기");
@@ -138,7 +172,26 @@ public class OtherToMainServerThread extends Thread{
                     if(choice.equals("5")) break;
                 }
                 if(choice.equals("exit")) break;
-*/
+
+                if(m_ID.equals("login") || m_ID.equals("bookmark") || m_ID.equals("findtour")){
+                    text = tmpbuffer.readLine();
+                    String[] split = text.split(">");
+                    msgtype = split[0];
+                    switch (msgtype){
+                        case"replylogin":
+                            SharedArea.replylogin_msg = split[1];
+                            System.out.println("여기야"+SharedArea.replylogin_msg);
+                            break;
+                        case"TourData":
+                            SharedArea.replyfindtour_msg = split[1];
+                            break;
+                        case"replybookmark":
+                            SharedArea.replybookmark_msg = split[1];
+                            System.out.println("여기1:" + SharedArea.replybookmark_msg);
+                            break;
+                    }
+
+                }
 
                 /*String[] split = text.split(">");
                 msgtype = split[0];

@@ -22,7 +22,6 @@ public class ServerToServerThread extends Thread{
                 Thread.sleep(5);
 
                 if(m_socket.equals(SharedArea.login_socket) && SharedArea.tologin_msg!=null){ //로그인 모듈과 연결된 소켓
-                    System.out.println("이게왜..");
                     sendWriter.println(SharedArea.tologin_msg);
                     sendWriter.flush();
                     SharedArea.tologin_msg=null;
@@ -39,7 +38,7 @@ public class ServerToServerThread extends Thread{
                     sendWriter.flush();
                     SharedArea.tobookmark_msg=null;
                 }
-                if(m_socket.equals(SharedArea.bookmark_client_socket)){ //즐겨찾기 모듈에 메시지를 보낸 클라이언트와 연결된 소켓
+                if(m_socket.equals(SharedArea.bookmark_client_socket) && SharedArea.replybookmark_msg!=null){ //즐겨찾기 모듈에 메시지를 보낸 클라이언트와 연결된 소켓
                     //System.out.println("즐겨찾기 모듈의 응답 메시지(mainserver->client):" + SharedArea.replybookmark_msg);
                     Thread.sleep(100);
                     sendWriter.println(SharedArea.replybookmark_msg);

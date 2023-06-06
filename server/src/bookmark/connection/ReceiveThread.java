@@ -28,7 +28,7 @@ public class ReceiveThread extends Thread{
             while(true)
             {
                 receiveString = tmpbuf.readLine();
-
+                System.out.println("받은메시지:" + receiveString);
                 split = receiveString.split(">");
                 if(split[0].equals("addBookmark"))
                 {
