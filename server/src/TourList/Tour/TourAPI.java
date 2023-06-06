@@ -73,7 +73,7 @@ public class TourAPI {
                     String title = tourInfor.get("title").toString();
 
                     ti.append(",주소1 : " + addr1 + " ");
-                    ti.append("거리 : " + dist + " ");
+                    ti.append("거리 : " + dist + "km ");
                     ti.append("전화번호 : " + tel + " ");
                     ti.append("관광지명 : " + title + " ");
                 }
