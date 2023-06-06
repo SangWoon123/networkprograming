@@ -87,15 +87,7 @@ public class OtherToMainServerThread extends Thread{
                             inputpw = tmpbuffer.readLine();
                             SharedArea.tologin_msg="signUp>" + inputid + ">"+inputpw;
                             System.out.println("여기야2"+SharedArea.replylogin_msg);
-                            /*while(SharedArea.login_client_socket!=null){
-                                Thread.sleep(1);
-                                System.out.println("여기야3");
-                                System.out.println("여기야2"+SharedArea.replylogin_msg);
-                                if(SharedArea.replylogin_msg.equals("로그인 성공!")){
-                                    m_ID=inputid;
-                                    loginStatus=true;
-                                }
-                            }*/
+                            while(SharedArea.login_client_socket!=null) Thread.sleep(1);
                             break;
                         case "3":
                             System.out.println("관광지 추천 받기");
@@ -110,10 +102,8 @@ public class OtherToMainServerThread extends Thread{
                                 allow = tmpbuffer.readLine();
                             }
                             if(allow.equals("아니오")) break;
-                            String ipip = m_socket.getInetAddress().getHostAddress();//로컬호스트로 연결되어 로컬호스트를 반환함
-                            System.out.println("ip : " + ipip);
                             String inputip = tmpbuffer.readLine();
-                            SharedArea.tofindtour_msg="tourList>" + inputip + ">"+inputpw;
+                            SharedArea.tofindtour_msg="tourList>" + inputip;
                             break;
                         case "4":
                             System.out.println("종료");
