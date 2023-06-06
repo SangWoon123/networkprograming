@@ -41,7 +41,6 @@ public class Client {
         send.setSocket(client);
 
         receive.start();
-
         send.start();
 
     }

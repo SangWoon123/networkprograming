@@ -22,11 +22,6 @@ public class Send extends Thread{
 
             String sendString;
 
-            System.out.println("사용할 ID를 입력해주십시오 : ");
-            Client.UserID = tmpbuf.readLine();
-
-            sendWriter.println("ID:" + Client.UserID);
-            sendWriter.flush();
 
             while(true)
             {
