@@ -26,7 +26,7 @@ public class ViewService {
         try (BufferedReader reader = new BufferedReader(new FileReader(USER_DATA_FILE))) {
             String line;
 
-            String sendmsg = "";
+            String sendmsg = "viewb";
             while ((line = reader.readLine()) != null) {
                 String[] userData = line.split(",");
                 storedUsername = userData[0];

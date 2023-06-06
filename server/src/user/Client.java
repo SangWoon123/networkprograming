@@ -7,7 +7,7 @@ import java.util.logging.Logger;
 
 public class Client {
     private static final String serverName = "localhost";
-    private static final int port = 9370;
+    private static final int port = 9375;
     private static final Logger logger=Logger.getLogger(Client.class.getName());
     private static final Socket client;
 

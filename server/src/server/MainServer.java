@@ -13,9 +13,8 @@ public class MainServer {
         // TODO Auto-generated method stub
 
         m_OutputList = new ArrayList<PrintWriter>();
-        System.out.println("hi");
         try {
-            ServerSocket s_socket = new ServerSocket(9370);
+            ServerSocket s_socket = new ServerSocket(9375);
 
             while(true)
             {

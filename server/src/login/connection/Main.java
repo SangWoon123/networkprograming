@@ -12,7 +12,7 @@ public class Main {
         // TODO Auto-generated method stub
 
         try {
-            Socket c_socket = new Socket("127.0.0.1", 9370);
+            Socket c_socket = new Socket("127.0.0.1", 9375);
 
             ReceiveThread rec_thread = new ReceiveThread();
             rec_thread.setSocket(c_socket);

@@ -62,6 +62,7 @@ public class TourAPI {
             JSONArray item = (JSONArray)items.get("item");
 
             if(item.size() > 0) {
+                ti.append("tour");
                 for(int i = 0; i < item.size(); i++) {
                     StringBuilder temp = new StringBuilder("");
 

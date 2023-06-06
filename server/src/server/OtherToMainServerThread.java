@@ -15,6 +15,8 @@ public class OtherToMainServerThread extends Thread{
     String inputid;
     String inputpw;
     String choice = "";
+    String allow;
+    String inputip;
     @Override
     public void run() {
         // TODO Auto-generated method stub
@@ -92,7 +94,7 @@ public class OtherToMainServerThread extends Thread{
                             SharedArea.findtour_client_socket=m_socket;
                             sendWriter.println("위치 정보를 얻는데 동의하십니까? (네/아니오):");
                             sendWriter.flush();
-                            String allow = tmpbuffer.readLine();
+                            allow = tmpbuffer.readLine();
                             while(!allow.equals("네") && !allow.equals("아니오")){ // (네/아니오)로 대답하지 않은 경우
                                 sendWriter.println("(네/아니오)로 대답해주세요:");
                                 sendWriter.flush();
@@ -100,7 +102,9 @@ public class OtherToMainServerThread extends Thread{
                                 allow = tmpbuffer.readLine();
                             }
                             if(allow.equals("아니오")) break;
-                            String inputip = tmpbuffer.readLine();
+                            sendWriter.println("ip를 입력해주세요:");
+                            sendWriter.flush();
+                            inputip = tmpbuffer.readLine();
                             SharedArea.tofindtour_msg="tourList>" + inputip;
                             while(SharedArea.findtour_client_socket!=null) Thread.sleep(1);
                             break;
@@ -124,7 +128,7 @@ public class OtherToMainServerThread extends Thread{
                             SharedArea.findtour_client_socket=m_socket;
                             sendWriter.println("위치 정보를 얻는데 동의하십니까? (네/아니오):");
                             sendWriter.flush();
-                            String allow = tmpbuffer.readLine();
+                            allow = tmpbuffer.readLine();
                             while(!allow.equals("네") && !allow.equals("아니오")){ // (네/아니오)로 대답하지 않은 경우
                                 sendWriter.println("(네/아니오)로 대답해주세요:");
                                 sendWriter.flush();
@@ -132,9 +136,9 @@ public class OtherToMainServerThread extends Thread{
                                 allow = tmpbuffer.readLine();
                             }
                             if(allow.equals("아니오")) break;
-                            String ipip = m_socket.getInetAddress().getHostAddress();//로컬호스트로 연결되어 로컬호스트를 반환함
-                            System.out.println("ip : " + ipip);
-                            String inputip = tmpbuffer.readLine();
+                            sendWriter.println("ip를 입력해주세요:");
+                            sendWriter.flush();
+                            inputip = tmpbuffer.readLine();
                             SharedArea.tofindtour_msg="tourList>" + inputip + ">"+inputpw;
                             while(SharedArea.findtour_client_socket!=null) Thread.sleep(1);
                             break;
