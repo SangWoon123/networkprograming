@@ -27,4 +27,3 @@ kkk,wsdafagsd
 kkk,장소명:경복궁,주소:서울 노원구
 asdf,dfsgsd
 kkk,멋진 관광지
-kkk,푸른 도시

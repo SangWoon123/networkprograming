@@ -26,7 +26,6 @@ public class Client {
 
         if (client != null) {
             logger.info("서버에 연결되었습니다.");
-            logger.info("시작하시려면 아무 글자나 입력해주세요");
         }
 
         Receive receive=new Receive();
